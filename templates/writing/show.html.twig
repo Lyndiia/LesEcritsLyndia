@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recapitulatif de mon envoie - Les Ecrits de Lyndia{% endblock %}
+
+{% block body %}
+    <h1 class="titlePost">Récapitulatif de ma participation</h1>
+
+    <div class="bloc" style="min-height:40vh;">
+        
+        <div class="recap" style="margin:4vh;">
+            <h2>Contenu de mon message : </h2>
+            <p>{{ writing.writContent }}</p>
+        </div>
+        <div class="recap" style="margin:4vh;">
+            <h2>Un fichier joint ? </h2>
+            <p>{{ writing.writAttachment }}</p>
+        </div>
+
+    <a href="{{ path('app_concours_index') }}" class="btn" style="color:#262526;">Retour aux coucours</a>
+        
+    </div>
+
+
+    
+
+
+{% endblock %}

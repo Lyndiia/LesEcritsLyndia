@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Participation concours - Les Ecrits de Lyndia{% endblock %}
+
+{% block body %}
+
+    <h1  class="titlePost">Envoie ta participation !</h1>
+    <div class="bloc">
+        {{ include('writing/_form.html.twig') }}
+
+        <a href="{{ path('app_concours_index') }}" class="btn" style="color:#262526; margin-top:0;">Retour aux concours  </a>
+    </div>    
+{% endblock %}

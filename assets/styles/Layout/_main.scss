@@ -1,0 +1,252 @@
+section {
+    background: $white;
+    width: 80%;
+    margin: 0 auto;    
+   
+    
+    .datum {
+        margin-top: 0;
+        font-size: 1rem;
+        padding-top: 50px;
+        position:relative;
+        @include center;
+
+        &:before {
+            content: "";
+            position: absolute;
+            width: 30%;
+            height: 1px;
+            background: $gray;
+            left: 25%;
+            transform:translateX(-50%);
+            bottom: 5px;
+
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            width: 30%;
+            height: 1px;
+            background: $gray;
+            left: 75%;
+            transform:translateX(-50%);
+            bottom: 5px;
+
+        }
+
+        @media screen and (max-width: 750px) {
+            &:before {
+                width: 20%;
+            }
+            &:after {
+                width: 20%;
+            }
+            
+        }
+    }    
+    .massive {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+        width: 100%;
+        
+
+        h2 {
+            @include title;
+            font-size: 3rem;
+            margin: 0 auto;
+            @include center;
+
+            @media screen and (max-width: 750px) {
+                font-size: 2rem;
+            }
+            
+        }
+
+        .img {
+            margin: 70px 55px;
+            background: url(../img/APropos.jpg) center/cover;
+            height: 60vh;
+
+        }
+
+        p {
+            width: 60%;
+            font-size: 0.8rem;
+            line-height: 35px;
+            margin: 30px auto;
+            font-style: italic;
+            text-align: center;
+            font-family: "Merriweather-Light", serif;
+        }
+
+        .btn {
+            margin: 50px 0 90px;
+        }
+        
+    }
+    
+    .more,
+    .row {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        margin: 0 auto;
+        
+        @media screen and (max-width: 750px) {
+            display: block;
+        }
+        
+        
+        
+        .magna,
+        .primis {
+            width: 100%;
+            
+            border: 1px solid $gray;
+            h2 {
+                text-align: center;
+            }
+
+            .april {
+                font-size: 0.75rem;
+            }
+
+            .titleHome {
+                height: 15vh;
+            }
+            h2 {
+                margin: 20px auto;
+                @include title;
+                line-height: 28px;
+                font-weight: bold;
+                
+            }
+
+            p {
+                font-family: "Merriweather-Light", serif;
+            }
+        }
+
+
+        
+
+
+        .txt {
+            font-size: 0.8rem;
+            text-align: justify;
+            margin: 30px 0;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .magna {
+            .img{
+                width: 70%;
+                height: 25vh;
+                background: url(../img/book-g23a11c727_640.jpg) center/cover;
+                margin: 0 auto;
+            }
+
+
+            
+            a {
+                color: $black;
+                text-transform: none;
+                &:hover {
+                    color: $white;
+                }
+            }
+            .btn {
+                color: $black;
+                background: none;
+                height: 45px;
+                width: 170px;
+                font-size: 1rem;
+                border: 2px solid $black;
+                margin-left: 50%;
+                transform: translateX(-50%);
+                margin-bottom: 40px;
+                cursor: pointer;
+                transition: 0.3s;
+                    &:hover {
+                    transform:matrix(0.8);
+                    background: $black;
+                    border: 1px solid $white;
+                    color: $white;
+                    }
+            }
+        }
+
+        .primis {
+            .img{
+                width: 70%;
+                height: 25vh;
+                background: url(../img/vintage-ge150e4ae6_640.jpg) center/cover;
+                margin: 0 auto;
+            }
+
+            a {
+                color: $black;
+                text-transform: none;
+                &:hover {
+                    color: $white;
+                }
+            }
+            
+            
+            
+            .btn {
+                color: $black;
+                background: none;
+                height: 45px;
+                width: 170px;
+                font-size: 1rem;
+                border: 2px solid $black;
+                margin-left: 50%;
+                transform: translateX(-50%);
+                margin-bottom: 40px;
+                cursor: pointer;
+                transition: 0.3s;
+                &:hover {
+                    transform:matrix(0.8);
+                    background: $black;
+                    border: 1px solid $white;
+                    color: $white;
+                }
+            }
+        }
+        
+        
+        
+        
+    }
+    
+    
+    
+}
+
+
+/* ******************************** Log In ****************************** */
+
+.seConnect {
+    
+    
+    width: 40%;
+    background: #d9d9d97a;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid $gray;
+    text-transform: uppercase;
+    border-radius: 9px;
+    margin: 150px auto;
+    
+    h1 {
+        @include title;
+        @include center;
+        margin-top: 10px;
+    }
+
+    .btn {
+        margin-top: 40px;
+    }
+}

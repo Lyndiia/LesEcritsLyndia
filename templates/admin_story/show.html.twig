@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Story{% endblock %}
+
+{% block body %}
+    <h1>Story</h1>
+    <a href="#offcanvasExample" class="btn"data-bs-toggle="offcanvas" role="button" aria-controls="offcanvasExemple">Menu</a>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ story.id }}</td>
+            </tr>
+            <tr>
+                <th>Story_title</th>
+                <td>{{ story.storyTitle }}</td>
+            </tr>
+            <tr>
+                <th>Story_genre</th>
+                <td>{{ story.storyGenre }}</td>
+            </tr>
+            <tr>
+                <th>Story_pic</th>
+                <td>{% if story.storyPic %}
+    <img src="{{ asset('build/images/' ~ story.storyPic) }}" alt="Story Image">
+{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Story_desc</th>
+                <td>{{ story.storyDesc }}</td>
+            </tr>
+            <tr>
+                <th>Story_content</th>
+                <td>{{ story.storyContent }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_story_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_story_edit', {'id': story.id}) }}">edit</a>
+
+    {{ include('admin_story/_delete_form.html.twig') }}
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+     
+            <h2 class="offcanvas-title" id="offcanvasExampleLabel">{{ app.user.userPseudo }}</h2>
+    
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    
+        </div>
+    
+        <div class="offcanvas-body">
+            <div class="listgroup">
+                <a href="{{ path('app_home') }}"class="list-group-item list-group-item-action">Accueil</a>
+            </div>
+            <div class="listgroup">
+                <a href="{{ path('app_user_show') }}"class="list-group-item list-group-item-action">Mon profil</a>
+            </div>
+            <div class="listgroup">
+                <a href="{{ path('app_private_mess') }}"class="list-group-item list-group-item-action ">Boîte de réception</a>
+            </div>
+            <div class="listgroup">
+                <a href="{{ path('app_library_show',  {'id':library.id}) }}"class="list-group-item list-group-item-action ">Ma bibliothèque</a>
+            </div>
+            {% if is_granted("ROLE_ADMIN") %}
+                
+                <div class="listgroup">
+                    <a href="{{ path('app_admin') }}" class="list-group-item list-group-item-action">Administration</a>
+                </div>
+            {% endif %}
+            <div class="listgroup">
+                <a href="{{ path('app_logout') }}"class="list-group-item list-group-item-action ">Se deconnecter</a>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

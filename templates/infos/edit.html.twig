@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Informations - Les Ecrits de Lyndia{% endblock %}
+
+{% block body %}
+    <h1 class="titlePost">Modification d'informations!</h1>
+    <div class="bloc">
+        {{ include('infos/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+        <a href="{{ path('app_user_show') }}">Retour sur mon profil</a>
+    </div>    
+
+
+{% endblock %}

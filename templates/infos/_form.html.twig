@@ -1,0 +1,7 @@
+{{ form_start(form, {'attr': {'style': 'width: 80%; margin: 0 auto;' }}) }}
+    {{ form_row(form.info_genre, {'attr': {'class': 'form-control', 'style': 'resize: none;'}}) }}
+    {{ form_row(form.info_type, {'attr': {'class': 'form-control', 'style': 'resize: none;'}}) }}
+    {{ form_row(form.info_pic, {'attr': {'class': 'form-control', 'style': 'resize: none;'}}) }}
+    {{ form_row(form.info_desc, {'attr': {'class': 'form-control', 'style': 'height: 25vh; resize: none;'}}) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

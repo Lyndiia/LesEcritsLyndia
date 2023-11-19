@@ -1,0 +1,129 @@
+header {
+    color: $white;
+    position: relative;
+    min-height: 100vh;
+
+    .header-content{
+        display: flex;
+        flex-direction: column;
+        @include center;
+        min-height: 100vh;
+        opacity: 0;
+        transform: translateY(40px);
+        animation: headerAnim 1.5s forwards;
+
+        @keyframes headerAnim {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+        }
+
+        h1 {
+            @include title;
+            font-size: 4rem;
+            letter-spacing: 6px;
+            margin-bottom: 0;
+            text-align: center;
+            font-weight: bold;
+
+            @media screen and (max-width: 750px) {
+                font-size: 2rem;
+            }  
+        }
+
+              
+
+    }
+    nav {
+        width: 80%;
+        background: rgba(255, 255, 255, 0.251);
+        display: flex;
+        justify-content: space-between;
+        height: 65px;
+        z-index: 100;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+       
+        ul {
+            display: flex;
+            align-items: center;
+        }
+    
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+        .show {
+            margin-top: 17px;
+            background: rgba(18, 17, 17, 0.8);
+        }
+        .leftpart {
+            width: 70%;
+
+            @media screen and (max-width: 990px){
+                width: 100%;
+            }
+            &:hover li:not(:hover){
+                background: none;
+                color: $black;
+            }
+
+            li {
+                @include title;
+                font-size: 0.7rem;
+                padding:15px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                @media screen and (max-width: 750px) {
+                    font-size: 0.7rem;
+                }
+                a{
+                    color: $black;
+                    font-weight: bold;
+
+                    @media screen and (max-width: 750px) {
+                        color: $white;
+                    }    
+                }
+               
+                &:hover {
+                    background: $black;
+                    a{
+                        color: $white;
+                    }
+                    
+                }
+            }
+             
+        }
+    
+        .rightpart {
+            width: 30%;
+            font-size: 1.1rem;
+            min-width: 100px;
+            max-width: 300px;
+            display: flex;
+            justify-content: space-between;
+            margin-right: 10px;
+
+            @media screen and (max-width: 990px) {
+                display: none;
+            }
+
+            li {
+                transition: 0.15s;
+                cursor: pointer;
+                
+                &:hover {
+                    transform: scale(1.3);
+                }
+            }    
+        }
+    }
+
+}

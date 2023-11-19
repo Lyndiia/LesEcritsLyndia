@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un Chapitre - Administration{% endblock %}
+
+{% block body %}
+    <h1 class="titlePost">Modifier un Chapitre - Administration</h1>
+    <div class="btnHomeContainer">
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}<a href="#offcanvasExample" class="home"data-bs-toggle="offcanvas" role="button" aria-controls="offcanvasExemple"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+</svg> Menu</a>{% else %}<a href="{{ path('app_home') }}" class="home"> Page d'accueil <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
+  <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
+</svg></a>
+    {% endif %}
+    </div>
+
+    <div class="bloc">
+    {{ include('admin_chapter/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('app_admin_chapter_index') }}" class="btn" style=" color: #262526; margin: 1vh; margin-left:51%">Retour aux Chapitres</a>
+
+    {{ include('admin_chapter/_delete_form.html.twig') }}
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+     
+            <h2 class="offcanvas-title" id="offcanvasExampleLabel">{{ app.user.userPseudo }}</h2>
+    
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    
+        </div>
+    
+        <div class="offcanvas-body">
+            <div class="listgroup">
+                <a href="{{ path('app_home') }}"class="list-group-item list-group-item-action">Accueil</a>
+            </div>
+            <div class="listgroup">
+                <a href="{{ path('app_user_show') }}"class="list-group-item list-group-item-action">Mon profil</a>
+            </div>
+            <div class="listgroup">
+                <a href="{{ path('app_private_mess') }}"class="list-group-item list-group-item-action ">Boîte de réception</a>
+            </div>
+            <div class="listgroup">
+                <a href="{{ path('app_library_show',  {'id':library.id}) }}"class="list-group-item list-group-item-action ">Ma bibliothèque</a>
+            </div>
+            {% if is_granted("ROLE_ADMIN") %}
+                
+                <div class="listgroup">
+                    <a href="{{ path('app_admin') }}" class="list-group-item list-group-item-action">Administration</a>
+                </div>
+            {% endif %}
+            <div class="listgroup">
+                <a href="{{ path('app_logout') }}"class="list-group-item list-group-item-action ">Se deconnecter</a>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

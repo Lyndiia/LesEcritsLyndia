@@ -1,0 +1,7 @@
+{{ form_start(form, {'attr': {'style': 'width: 80%; margin: 0 auto;' }}) }}
+    {{ form_row(form.email, {'attr': {'class': 'form-control', 'style': 'resize: none;'}}) }}
+    {{ form_row(form.plainPassword, {'attr': {'class': 'form-control', 'style': 'resize: none;'}}) }}
+    {{ form_row(form.user_name, {'attr': {'class': 'form-control', 'style': 'resize: none;'}}) }}
+    {{ form_row(form.user_pseudo, {'attr': {'class': 'form-control', 'style': 'resize: none;'}}) }}
+    <button class="btn">{{ button_label|default('Modifier') }}</button>
+{{ form_end(form) }}

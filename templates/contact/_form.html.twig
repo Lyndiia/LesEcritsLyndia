@@ -1,0 +1,9 @@
+{{ form_start(formulaire, {'attr': {'style': 'width: 80%; margin: 0 auto;' }}) }}
+
+    {{ form_row(formulaire.cont_name, {'attr': {'class': 'form-control', 'style': 'resize: none;'}}) }}
+    {{ form_row(formulaire.cont_email, {'attr': {'class': 'form-control', 'style': 'resize: none;'}}) }}
+    {{ form_row(formulaire.cont_content, {'attr': {'class': 'form-control', 'style': 'height: 25vh; resize: none;'}}) }}
+
+    <button class="btn">{{ button_label|default('Envoyer') }}</button>
+
+{{ form_end(formulaire) }}

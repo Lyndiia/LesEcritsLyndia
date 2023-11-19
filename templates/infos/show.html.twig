@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Infos{% endblock %}
+
+{% block body %}
+    <h1>Infos</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ info.id }}</td>
+            </tr>
+            <tr>
+                <th>Info_genre</th>
+                <td>{{ info.infoGenre }}</td>
+            </tr>
+            <tr>
+                <th>Info_type</th>
+                <td>{{ info.infoType }}</td>
+            </tr>
+            <tr>
+                <th>Info_pic</th>
+                <td>{{ info.infoPic }}</td>
+            </tr>
+            <tr>
+                <th>Info_desc</th>
+                <td>{{ info.infoDesc }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <a href="{{ path('app_infos_edit', {'id': info.id}) }}">edit</a>
+
+{% endblock %}

@@ -1,0 +1,5 @@
+{{ form_start(form) }}
+    {{ form_label(form.comm_content) }}
+    {{ form_widget(form.comm_content, {'attr': {'style': 'resize: none; width: 80%; height: 25vh; margin: 0 auto;'}}) }}
+    <button class="btn">{{ button_label|default('Commenter') }}</button>
+{{ form_end(form) }}

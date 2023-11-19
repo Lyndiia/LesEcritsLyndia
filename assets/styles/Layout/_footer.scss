@@ -1,0 +1,141 @@
+footer {
+    background: $white;
+    width: 80%;
+    margin: 30px auto;
+ 
+
+    
+
+    .contact {
+        display: grid;
+        grid-template-columns: 50% 50%;
+
+        @media screen and (max-width: 750px) {
+            display: block;
+            height: auto;
+        } 
+
+        .leftp {
+            textarea {
+             resize: none;
+             margin: 7px 0 px;
+             border: 1px solid $gray;
+             height: 180px;
+             width: 100%;
+             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+             border-radius: 5px;
+             font-size: 1.1rem;
+             padding-left: 10px; 
+             background: none;  
+            }
+
+            form {
+                width: 90%;
+                min-width: 250px;
+                max-width: 500px;
+                display: grid;
+                grid-template-rows: repeat(5, 45px);
+                padding: 50px 45px 30px;
+                background: none;
+                margin: 0 auto;
+            }
+            
+            label {
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+
+            input[type="text"] {
+                background: none;
+                margin: 7px 0 7px;
+                border: 1px solid $gray;
+                height: 36px;
+                width: 100%;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+                font-size: 1.1rem;
+                padding-left: 10px;
+                
+            }
+
+            input[type="submit"] {
+                margin: 12px auto 0;
+                cursor: pointer;
+                transition: 0.3s ease;
+                box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+                border: 1px solid $gray;
+                margin-left: 50%;
+                transform: translateX(-50%);
+            }
+
+        }
+
+        .infos {
+            display: grid;
+            grid-template-rows: 80px 150px 150px;
+
+            h2{
+                @include title;
+                @include center;
+                margin-bottom: 0;
+                color: $gray;
+                font-size: 1.2rem;
+                border: $gray 1px solid;
+                border-right: none;
+
+                @media screen and (max-width: 750px) {
+                    display: none;
+                } 
+            }
+
+            .inf {
+                display: grid;
+                grid-template-columns: 40% 60%;
+                text-align: left;
+                border: $gray 1px solid;
+                border-right: none;
+
+
+                .title {
+                    padding-left: 40px;
+                    margin-top: 60px;
+                    color: $gray;
+                    text-transform: uppercase;
+                    font-family:'InterExtraBold','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                }
+
+                .txtp {
+                    margin-top: 60px;
+                    color: $gray;
+                }
+
+                ul {
+                    display: flex;
+                    margin-top: -5px;
+
+                    li {
+                        border-radius: 150px;
+                        border: 1px solid $gray;
+                        margin-right: 10px;
+                        i{
+                            color: $gray;
+                            font-size: 1rem;
+                            padding: 10px;
+                           
+                        }
+                    }
+                    
+                    
+                }
+             
+                @media screen and (max-width: 750px) {
+                    border: none;
+                } 
+            }
+
+       
+        }
+
+    }
+
+}

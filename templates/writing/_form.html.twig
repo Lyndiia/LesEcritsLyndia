@@ -1,0 +1,5 @@
+{{ form_start(form, {'attr': {'style': 'width: 80%; margin: 0 auto;' }}) }}
+    {{ form_row(form.writ_content, {'attr': {'class': 'form-control', 'style': 'resize: none;'}}) }}
+    {{ form_row(form.writ_attachment, {'attr': {'class': 'form-control', 'style': 'resize: none;'}}) }}
+    <button class="btn">{{ button_label|default('Envoyer') }}</button>
+{{ form_end(form) }}

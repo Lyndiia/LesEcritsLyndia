@@ -1,0 +1,197 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Ecrits de Lyndia{% endblock %}
+
+{% block body %}
+
+        <header>
+        {% block header %}
+        <div class="header-content">
+            <h1>La lecture <br> ça vous gagne</h1>
+        </div>
+
+        <nav class="navbar navbar-expand-lg">
+            <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="leftpart navbar-nav">
+                <li class="nav-item"><a href="{{ path('app_article_index') }}" class="nav-link">Mes histoires</a></li>
+                <li class="nav-item"><a href="#APropos" class="nav-link">A propos</a></li>
+                <li class="nav-item"><a href="{{ path('app_contact') }}" class="nav-link">Me contacter</a></li>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}<li class="nav-item"><a href="#offcanvasExample" class="nav-link"data-bs-toggle="offcanvas" role="button" aria-controls="offcanvasExemple">{{ app.user.userPseudo }}</a></li>{% else %}<li class="nav-item"><a href="{{ path('app_login') }}">Se connecter</a></li>{% endif %}
+            </ul>
+            <ul class="rightpart navbar-nav d-lg-none">
+
+            </ul>
+        </div>
+        </nav>
+
+
+    {% endblock %}
+    </header>
+
+    <main id="main">
+        <section class="articles">
+            <p class="datum"></p>
+          
+            <div class="massive " id="APropos">
+                <h2>A propos </h2>
+                <p>Passionnée de lecture et d’écriture depuis ma plus tendre enfance, je me suis mis comme défi
+                personnel de créer un site web qui regrouperait tous mes écrits ainsi que des concours d’écritures
+                afin de partager avec internet et ses utilisateurs ma passion ! </p>
+                <div class="img"></div>
+                
+
+            </div>
+            <div class="more row">
+                <div class="magna col-md-2">
+
+                    <div class ="titleHome">
+                        <h2>Mes histoires</h2>
+                    </div>
+                    <div class="img"></div>
+                    <p class="txt">Que vous soyez intéressé par la romance, la fantaisie, la fiction oubien encore un mélange de tous cela, retrouvez ici tous mes écrits !</p>
+                    <button class="btn"><a href="{{ path('app_story_index') }}" >Voir les histoires</a></button>
+                </div>
+
+                <div class="primis col-md-6">
+                    <div class ="titleHome">
+                        <h2>Concours d'écriture</h2>
+                    </div>    
+                    <div class="img"></div>
+                    <p class="txt">Vous voulez, vous aussi, partager votre passion pour l'écriture avec nous, venez participer aux concours et tentez de gagner un cadeau !</p>
+                    <button class="btn"><a href="{{ path('app_concours_index') }}" >Voir les concours</a></button>
+                </div>
+            </div>
+        </section>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}    
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+     
+            <h2 class="offcanvas-title" id="offcanvasExampleLabel">{{ app.user.userPseudo }}</h2>
+    
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    
+        </div>
+    
+        <div class="offcanvas-body">
+            <div class="listgroup">
+                <a href="{{ path('app_home') }}"class="list-group-item list-group-item-action active">Accueil</a>
+            </div>
+            <div class="listgroup">
+                <a href="{{ path('app_user_show') }}"class="list-group-item list-group-item-action">Mon profil</a>
+            </div>
+            <div class="listgroup">
+                <a href="{{ path('app_private_mess') }}"class="list-group-item list-group-item-action ">Boîte de réception</a>
+            </div>
+            <div class="listgroup">
+                <a href="{{ path('app_library_show',  {'id':library.id}) }}"class="list-group-item list-group-item-action ">Ma bibliothèque</a>
+            </div>
+             {% if is_granted("ROLE_ADMIN") %}
+                
+                <div class="listgroup">
+                    <a href="{{ path('app_admin') }}" class="list-group-item list-group-item-action">Administration</a>
+                </div>
+            {% endif %}
+            <div class="listgroup">
+                <a href="{{ path('app_logout') }}"class="list-group-item list-group-item-action ">Se deconnecter</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    </main>
+
+    <footer>
+        <div class="contact" id="contact">
+            <div class="leftp">
+            
+                <form autocomplete="off">
+                    <label for="name">Name</label>
+                    <input type="text" id="name">
+
+                    <label for="email">Email</label>
+                    <input type="text" id="email">
+
+
+                    <label for="message">Message</label>
+                    <textarea id="message"></textarea>
+                    <div class="submit-container">
+                        <input type="submit" class="btn" value="Envoyer">
+                    </div>
+                <form>
+
+            </div>
+
+
+
+
+
+            <div class="infos">
+                <h2>Mes informations</h2>
+        
+                    
+                <div class="inf">
+                    <div class="title">
+                        <h3>Email</h3>
+                    </div>
+                    <div class="txtp">
+                        <p>info@unititled.ltd</p>
+                    </div>
+
+                </div>
+                <div class="inf">
+                    <div class="title">
+                        <h3>Social</h3>
+                    </div>
+                    <div class="txtp">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                            </li>
+                       
+                            <li>
+                                <a href="#">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa-brands fa-github"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+     <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+{% endblock %}
